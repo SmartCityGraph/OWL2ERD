@@ -1,0 +1,169 @@
+Classes: 
+
+Class name: "Road"
+
+
+Class name: time:Duration
+
+
+Class name: time:Instant
+
+
+Class name: time:ProperInterval
+
+
+Class name: "Документ"
+
+
+Class name: "Геометрия"
+
+
+Class name: "Город"
+"Предлагаю использовать индивиды и классы из онтологии ОКТМО \"Города федерального значения\" и \"Населённый пункт\""
+
+Class name: "График освещения"
+"Предлагается сделать этот класс, подклассом класса \"Документ\" из основной онтологии."
+
+Class name: "Элемент освещения"
+
+
+Class name: "Дорожное освещение"
+
+
+Class name: "Дорога городского значения"
+
+
+Class name: "Дорога класса А1"
+
+
+Class name: "Дорога класса А2"
+
+
+Class name: "Дорога класса А3"
+
+
+Class name: "Дорога класса А4"
+
+
+Class name: "Дорога районного значения"
+
+
+Class name: "Дорога класса Б1"
+
+
+Class name: "Дорога класса Б2"
+
+
+Class name: "Дорога местного значения"
+
+
+Class name: "Дорога класса В1"
+
+
+Class name: "Дорога класса В2"
+
+
+Class name: "Дорога класса В3"
+
+
+Class name: "Город федерального значения"
+
+
+Class name: "Населённый пункт"
+
+
+
+
+Object properties: 
+
+Object property name: "дорога"
+
+
+Object property name: time:hasDuration
+
+
+Object property name: time:hasEnd
+
+
+Object property name: :hasGeometry
+
+
+Object property name: :hasGeometry
+
+
+Object property name: :hasIlluminationInterval
+
+
+Object property name: :hasIlluminationTimetable
+
+
+Object property name: :hasIlluminationType
+
+
+Object property name: :hasLighting
+
+
+Object property name: :hasRoad
+
+
+
+
+Data properties: 
+
+Data property name: "обеспечена освещением"
+
+
+Data property name: time:minutes
+
+
+Data property name: :hasBandwidthMax
+
+
+Data property name: :hasBandwidthMin
+
+
+Data property name: :hasCoordinates
+
+
+Data property name: :hasDistanceBetween
+
+
+Data property name: :hasIlluminationAmount
+
+
+Data property name: :hasLampType
+
+
+Data property name: :hasLightingProperty
+
+
+Data property name: :hasLinesAmountMax
+
+
+Data property name: :hasLinesAmountMin
+
+
+Data property name: :hasMinimalIllumination
+
+
+Data property name: :hasName
+
+
+Data property name: :hasPower
+
+
+Data property name: :hasPowerPerKilometer
+
+
+Data property name: :hasRoadsProperty
+
+
+Data property name: :hasStandartTravelSpeedMax
+
+
+Data property name: :hasStandartTravelSpeedMin
+
+
+Data property name: :isProvidedWithIllumination
+
+
