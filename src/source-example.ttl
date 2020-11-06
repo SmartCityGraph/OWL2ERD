@@ -49,6 +49,7 @@
 time:hasBeginning rdf:type owl:ObjectProperty ;
                   rdfs:domain time:ProperInterval ;
                   rdfs:range time:Instant ;
+                  rdfs:comment "Отношение связывающее временной интервал с моментом начала этого интервала. Подобное отношение может быть только одно у каждого индивида временного интервала." ;
                   rdfs:label "время начала" .
 
 
@@ -56,6 +57,7 @@ time:hasBeginning rdf:type owl:ObjectProperty ;
 time:hasDuration rdf:type owl:ObjectProperty ;
                  rdfs:domain time:ProperInterval ;
                  rdfs:range time:Duration ;
+                 rdfs:comment "Отношение, связывающее временной интервал с его продолжительностью во времени. Подобное отношение может быть только одно у каждого индивида временного интервала." ;
                  rdfs:label "продолжительность" .
 
 
@@ -63,6 +65,7 @@ time:hasDuration rdf:type owl:ObjectProperty ;
 time:hasEnd rdf:type owl:ObjectProperty ;
             rdfs:domain time:ProperInterval ;
             rdfs:range time:Instant ;
+            rdfs:comment "Отношение связывающее временной интервал с моментом окончания этого интервала. Подобное отношение может быть только одно у каждого индивида временного интервала." ;
             rdfs:label "время окончания" .
 
 
@@ -70,6 +73,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasGeometry rdf:type owl:ObjectProperty ;
              rdfs:domain :City ;
              rdfs:range cg:Geometry ;
+             rdfs:comment "Отношение связывающее некоторые физические объекты с объектом геометрии - их местоположением в пространстве и границами." ;
              rdfs:label "геометрия" ;
              :areDomains "<http://www.opengis.net/citygml/transportation/2.0/Road>" .
 
@@ -78,6 +82,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasIlluminationInterval rdf:type owl:ObjectProperty ;
                          rdfs:domain :City ;
                          rdfs:range time:ProperInterval ;
+                         rdfs:comment "Отношение, связывающее город с одним из интервалов наружного освещения - один интервал для каждого дня." ;
                          rdfs:label "интервал освещения" .
 
 
@@ -85,6 +90,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasIlluminationTimetable rdf:type owl:ObjectProperty ;
                           rdfs:domain :City ;
                           rdfs:range :IlluminationTimetable ;
+                          rdfs:comment "Отношение, с помощью которого мы связываем город с документом, определяющим его наружное освещение." ;
                           rdfs:label "график светоосвещения" .
 
 
@@ -92,6 +98,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasIlluminationType rdf:type owl:ObjectProperty ;
                      rdfs:domain :RoadIllumination ;
                      rdfs:range :Lighting ;
+                     rdfs:comment "Отношение связывающее дорожное освещение с типом элементов освещения, которые используются в этом дорожном освещении. Подобное отношение может быть только одно для каждого индивида дорожного освещения." ;
                      rdfs:label "тип освещения" ;
                      :reverseProperty "true"^^xsd:boolean .
 
@@ -100,6 +107,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasLighting rdf:type owl:ObjectProperty ;
              rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
              rdfs:range :RoadIllumination ;
+             rdfs:comment "Отношение, связывающее дорогу с её освещением определённого типа. У дороги может быть несколько отношений подобного типа, если дорогу освещает несколько типов светильников." ;
              rdfs:label "освещение" .
 
 
@@ -107,6 +115,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 :hasRoad rdf:type owl:ObjectProperty ;
          rdfs:domain :City ;
          rdfs:range <http://www.opengis.net/citygml/transportation/2.0/Road> ;
+         rdfs:comment "Отношение, связывающее город с дорогой, находящейся в нём. Подобных отношений может быть (и скорее всего так оно зачастую есть) много у каждого города." ;
          rdfs:label "дорога" .
 
 
@@ -118,6 +127,7 @@ time:hasEnd rdf:type owl:ObjectProperty ;
 time:inXSDDateTime rdf:type owl:DatatypeProperty ;
                    rdfs:domain time:Instant ;
                    rdfs:range xsd:dateTimeStamp ;
+                   rdfs:comment "Отношение, отражающее точное время момента (time:Instant) из временной онтологии." ;
                    rdfs:label "точное время" .
 
 
@@ -125,6 +135,7 @@ time:inXSDDateTime rdf:type owl:DatatypeProperty ;
 time:minutes rdf:type owl:DatatypeProperty ;
              rdfs:domain time:Duration ;
              rdfs:range xsd:int ;
+             rdfs:comment "Свойство отражающее временную протяжённость интервала времени через класс протяжённости интервала." ;
              rdfs:label "длительность в минутах" .
 
 
@@ -133,6 +144,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf :hasRoadsProperty ;
                  rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                  rdfs:range xsd:int ;
+                 rdfs:comment "Максимальная пропускная способность на дороге. В случае, если на всём протяжении дороги пропускная способность одинаковая - максимальная пропускная способность будет равна минимальной. Измеряется в тысячах машин в час (тысяча ед/ч)." ;
                  rdfs:label "максимальная пропускная способность" .
 
 
@@ -141,6 +153,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf :hasRoadsProperty ;
                  rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                  rdfs:range xsd:int ;
+                 rdfs:comment "Минимальная пропускная способность на дороге. В случае, если на всём протяжении дороги пропускная способность одинаковая - минимальная пропускная способность будет равна максимальная. Измеряется в тысячах машин в час (тысяча ед/ч)." ;
                  rdfs:label "минимальная пропускная способность" .
 
 
@@ -148,6 +161,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
 :hasCoordinates rdf:type owl:DatatypeProperty ;
                 rdfs:domain cg:Geometry ;
                 rdfs:range xsd:string ;
+                rdfs:comment "Строка, отображающая метоположение объекта в пространстве с помощью географических координат (point) либо же границы этого объекта (polygon)." ;
                 rdfs:label "координаты" .
 
 
@@ -156,6 +170,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf :hasLightingProperty ;
                     rdfs:domain :Lighting ;
                     rdfs:range xsd:int ;
+                    rdfs:comment "Установленное расстояние между опорами элементов освещения. Выражается в метрах." ;
                     rdfs:label "расстояние между" .
 
 
@@ -163,6 +178,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
 :hasIlluminationAmount rdf:type owl:DatatypeProperty ;
                        rdfs:domain :RoadIllumination ;
                        rdfs:range xsd:int ;
+                       rdfs:comment "Отношение, отражающее количество элементов освещения определённого типа на дороге." ;
                        rdfs:label "количество элементов освещения" .
 
 
@@ -171,11 +187,13 @@ time:minutes rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf :hasLightingProperty ;
              rdfs:domain :Lighting ;
              rdfs:range xsd:string ;
+             rdfs:comment "Тип лампы/ламп, используемых в элементе освещения. Самые популярные типы - натриевые и светодиодные." ;
              rdfs:label "тип лампы" .
 
 
 ###  http://www.w3id.org/citylights-graph#hasLightingProperty
 :hasLightingProperty rdf:type owl:DatatypeProperty ;
+                     rdfs:comment "Вспомогательное отношение для объединения всех литеральных отношений элементов освещения." ;
                      rdfs:label "атрибут освещения" ;
                      :notConvertable "true"^^xsd:boolean .
 
@@ -185,6 +203,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf :hasRoadsProperty ;
                    rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                    rdfs:range xsd:int ;
+                   rdfs:comment "Максимальное количество полос движения на дороге. В случае, если на всём протяжении дороги количество полос движения одинаковое - максимальное количество полос движения будет равно минимальному." ;
                    rdfs:label "максимальное количество полос движения" .
 
 
@@ -193,6 +212,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf :hasRoadsProperty ;
                    rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                    rdfs:range xsd:int ;
+                   rdfs:comment "Минимальное количество полос движения на дороге. В случае, если на всём протяжении дороги количество полос движения одинаковое - минимальное количество полос движения будет равно максимальному." ;
                    rdfs:label "минимальное количество полос движения" .
 
 
@@ -201,6 +221,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf :hasRoadsProperty ;
                         rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                         rdfs:range xsd:int ;
+                        rdfs:comment "Минимальное освещение, требуемое для того, чтобы считать дорогу освещённой. Измеряется в люксах (лк)." ;
                         rdfs:label "минимальное освещение" .
 
 
@@ -208,6 +229,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
 :hasName rdf:type owl:DatatypeProperty ;
          rdfs:domain :City ;
          rdfs:range xsd:string ;
+         rdfs:comment "Название города, используемое в онтологии." ;
          rdfs:label "название города" .
 
 
@@ -215,7 +237,8 @@ time:minutes rdf:type owl:DatatypeProperty ;
 :hasPower rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf :hasLightingProperty ;
           rdfs:domain :Lighting ;
-          rdfs:range xsd:integer ;
+          rdfs:range xsd:int ;
+          rdfs:comment "Мощность одного элемента освещения. Выражается в Ваттах." ;
           rdfs:label "мощность" .
 
 
@@ -224,11 +247,13 @@ time:minutes rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf :hasLightingProperty ;
                       rdfs:domain :Lighting ;
                       rdfs:range xsd:int ;
+                      rdfs:comment "Установленная мощность освещения на один километр при использовании данного типа элементов освещения. Выржается в килоВаттах." ;
                       rdfs:label "мощность на 1 км" .
 
 
 ###  http://www.w3id.org/citylights-graph#hasRoadsProperty
 :hasRoadsProperty rdf:type owl:DatatypeProperty ;
+                  rdfs:comment "Вспомогательное отношение для объединения всех литеральных отношений дорог." ;
                   rdfs:label "атрибут дороги" ;
                   :notConvertable "true"^^xsd:boolean .
 
@@ -238,6 +263,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                            rdfs:subPropertyOf :hasRoadsProperty ;
                            rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                            rdfs:range xsd:int ;
+                           rdfs:comment "Максимальная рассчётная скорость движения на дороге. В случае, если на всём протяжении дороги рассчётная скорость движения одинаковая - максимальная рассчётная скорость движения будет равна минимальной. Измеряется в километрах в час (км/ч)." ;
                            rdfs:label "максимальная рассчётная скорость движения" .
 
 
@@ -246,6 +272,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                            rdfs:subPropertyOf :hasRoadsProperty ;
                            rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                            rdfs:range xsd:int ;
+                           rdfs:comment "Минимальная рассчётная скорость движения на дороге. В случае, если на всём протяжении дороги рассчётная скорость движения одинаковая - минимальная рассчётная скорость движения будет равна максимальной. Измеряется в километрах в час (км/ч)." ;
                            rdfs:label "минимальная расчётная скорость движения" .
 
 
@@ -254,6 +281,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
                             rdfs:subPropertyOf :hasRoadsProperty ;
                             rdfs:domain <http://www.opengis.net/citygml/transportation/2.0/Road> ;
                             rdfs:range xsd:boolean ;
+                            rdfs:comment "Отношение отражающее обеспеченность дороги освещением, в соответствии с уже имеющимися элементами освещения на дороге." ;
                             rdfs:label "обеспечена освещением" .
 
 
@@ -263,6 +291,7 @@ time:minutes rdf:type owl:DatatypeProperty ;
 
 ###  http://www.opengis.net/citygml/transportation/2.0/Road
 <http://www.opengis.net/citygml/transportation/2.0/Road> rdf:type owl:Class ;
+                                                         rdfs:comment "Класс из онтологии opengis, которая также используется в нашей городской онтологии. Класс отражает все дороги в онтологии." ;
                                                          rdfs:label "Road"@en ,
                                                                     "Дорога"@ru ;
                                                          :ERDname "road" .
@@ -270,134 +299,156 @@ time:minutes rdf:type owl:DatatypeProperty ;
 
 ###  http://www.w3.org/2006/time#Duration
 time:Duration rdf:type owl:Class ;
+              rdfs:comment "Класс из временной онтологии, отражающий протяжённость интервала времени." ;
               :notConvertable "true"^^xsd:boolean .
 
 
 ###  http://www.w3.org/2006/time#Instant
 time:Instant rdf:type owl:Class ;
+             rdfs:comment "Класс из временной онтологии, отражающий момент времени с нулевой длительностью." ;
              :notConvertable "true"^^xsd:boolean .
 
 
 ###  http://www.w3.org/2006/time#ProperInterval
-time:ProperInterval rdf:type owl:Class .
+time:ProperInterval rdf:type owl:Class ;
+                    rdfs:comment "Класс из временной онтологии, отражающий ненулевой определённый промежуток времени. Имеющий начало, конец и протяжённость." .
 
 
 ###  http://www.w3id.org/citygraph-core#Document
 cg:Document rdf:type owl:Class ;
+            rdfs:comment "Класс городской онтологии, отражающий все документы с информационной точки зрения (рассматривается информация, которую они отображают)." ;
             rdfs:label "Документ" ;
             :notConvertable "true"^^xsd:boolean .
 
 
 ###  http://www.w3id.org/citygraph-core#Geometry
 cg:Geometry rdf:type owl:Class ;
+            rdfs:comment "Класс из городской онтологии, отражающий местоположение в пространстве и границы некоторых физических объектов." ;
             rdfs:label "Геометрия" ;
             :notConvertable "true"^^xsd:boolean .
 
 
 ###  http://www.w3id.org/citylights-graph#City
 :City rdf:type owl:Class ;
-      rdfs:comment "Предлагаю использовать индивиды и классы из онтологии ОКТМО \"Города федерального значения\" и \"Населённый пункт\"" ;
+      rdfs:comment "Класс, отражающий все города Российской Федерации. Индивиды городов относятся к одному из подклассов этого класса." ;
       rdfs:label "Город" .
 
 
 ###  http://www.w3id.org/citylights-graph#IlluminationTimetable
 :IlluminationTimetable rdf:type owl:Class ;
                        rdfs:subClassOf cg:Document ;
-                       rdfs:comment "Предлагается сделать этот класс, подклассом класса \"Документ\" из основной онтологии." ;
+                       rdfs:comment "Класс показывающий все графики наружного освещения городов." ;
                        rdfs:label "График освещения" .
 
 
 ###  http://www.w3id.org/citylights-graph#Lighting
 :Lighting rdf:type owl:Class ;
+          rdfs:comment "Класс отражает все типы элементов освещения. Индивиды данного класса содержат характеристики каждого отдельного элемента освещения, а также  характеристики использования элементов освещения." ;
           rdfs:label "Элемент освещения" .
 
 
 ###  http://www.w3id.org/citylights-graph#RoadIllumination
 :RoadIllumination rdf:type owl:Class ;
+                  rdfs:comment "Вспомогательный класс, который описывает количество элементов освещения определённого типа, освещающих определённую дорогу." ;
                   rdfs:label "Дорожное освещение" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_A
 :Road_A rdf:type owl:Class ;
         rdfs:subClassOf <http://www.opengis.net/citygml/transportation/2.0/Road> ;
+        rdfs:comment "Магистральные дороги и улицы общегородского назначения" ;
         rdfs:label "Дорога городского значения" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_A1
 :Road_A1 rdf:type owl:Class ;
          rdfs:subClassOf :Road_A ;
+         rdfs:comment "Автомагистрали, федеральные и транзитные трассы, основные магистрали города за пределами его центра" ;
          rdfs:label "Дорога класса А1" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_A2
 :Road_A2 rdf:type owl:Class ;
          rdfs:subClassOf :Road_A ;
+         rdfs:comment "Прочие федеральные дороги и основные улицы за пределами центра города" ;
          rdfs:label "Дорога класса А2" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_A3
 :Road_A3 rdf:type owl:Class ;
          rdfs:subClassOf :Road_A ;
+         rdfs:comment "Центральные магистрали, связующие улицы с выходом на магистрали класса А1" ;
          rdfs:label "Дорога класса А3" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_A4
 :Road_A4 rdf:type owl:Class ;
          rdfs:subClassOf :Road_A ;
+         rdfs:comment "Основные исторические проезды центра, внутренние транспортные связи города" ;
          rdfs:label "Дорога класса А4" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_B
 :Road_B rdf:type owl:Class ;
         rdfs:subClassOf <http://www.opengis.net/citygml/transportation/2.0/Road> ;
+        rdfs:comment "Магистрали и улицы районного значения" ;
         rdfs:label "Дорога районного значения" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_B1
 :Road_B1 rdf:type owl:Class ;
          rdfs:subClassOf :Road_B ;
+         rdfs:comment "Основные дороги и улицы города районного значения за пределами центра города" ;
          rdfs:label "Дорога класса Б1" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_B2
 :Road_B2 rdf:type owl:Class ;
          rdfs:subClassOf :Road_B ;
+         rdfs:comment "Основные дороги и улицы города районного значения в пределах центра города" ;
          rdfs:label "Дорога класса Б2" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_V
 :Road_V rdf:type owl:Class ;
         rdfs:subClassOf <http://www.opengis.net/citygml/transportation/2.0/Road> ;
+        rdfs:comment "Дороги на улицах местного значения" ;
         rdfs:label "Дорога местного значения" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_V1
 :Road_V1 rdf:type owl:Class ;
          rdfs:subClassOf :Road_V ;
+         rdfs:comment "Дороги в районнах жилой застройки за пределами центра города" ;
          rdfs:label "Дорога класса В1" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_V2
 :Road_V2 rdf:type owl:Class ;
          rdfs:subClassOf :Road_V ;
+         rdfs:comment "Дороги в районнах жилой застройки в центре города" ;
          rdfs:label "Дорога класса В2" .
 
 
 ###  http://www.w3id.org/citylights-graph#Road_V3
 :Road_V3 rdf:type owl:Class ;
          rdfs:subClassOf :Road_V ;
+         rdfs:comment """Дороги в районнах городских промышленных, коммунальных и складских
+зонах""" ;
          rdfs:label "Дорога класса В3" .
 
 
 ###  http://www.w3id.org/opengovdata#FederalCity
 OGD:FederalCity rdf:type owl:Class ;
                 rdfs:subClassOf :City ;
+                rdfs:comment "Класс онтологии ОКТМО, отражающий города Федерального значения." ;
                 rdfs:label "Город федерального значения" .
 
 
 ###  http://www.w3id.org/opengovdata#Locality
 OGD:Locality rdf:type owl:Class ;
              rdfs:subClassOf :City ;
+             rdfs:comment "Класс онтологии ОКТМО, отражающий все населённые пункты, помимо городов федерального значения, в том числе и все остальные города." ;
              rdfs:label "Населённый пункт" .
 
 

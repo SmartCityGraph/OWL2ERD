@@ -260,12 +260,10 @@ int main()
                 entity_properties_finder = line.find("rdfs:label");
                 if (entity_properties_finder > -1)
                 {
-                    cout << temp_entity.label << endl;
                     atribut_begin = line.find("\"");
                     atribut_end = line.find("\"", atribut_begin + 1);
                     atribut = line.substr(atribut_begin, atribut_end - atribut_begin + 1);
                     temp_entity.label = atribut;
-                    cout << temp_entity.label << endl;
                 }
 
                 // Если мы встречаем вхождение подстроки "rdfs:comment" то мы определяем комментарии сущности для документации
@@ -498,7 +496,6 @@ int main()
                 {
                     if ((classes_list[i].is_table == 0) && (classes_list[i].subclass_of != "") && (classes_list[i].check == "0"))
                     {
-                        cout << classes_list[i].name;
                         for (int j = 0; j < clasamount; j++)
                         {
                             if (classes_list[i].subclass_of == classes_safe_list[j].name)
